@@ -1,0 +1,22 @@
+eureka:
+  environment: Development
+  instance:
+      hostname: localhost
+      prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9092
+        username: admin
+        password: admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

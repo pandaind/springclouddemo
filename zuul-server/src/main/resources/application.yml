@@ -1,0 +1,31 @@
+server:
+  port: 9093
+
+
+spring:
+  application:
+    name: zuul-server
+  boot:
+      admin:
+       client:
+          url: http://localhost:9092
+          username: admin
+          password: admin
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9091/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}${random.uuid}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
